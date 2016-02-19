@@ -17,7 +17,7 @@ This web application takes user input for words to form a dictionary. For each w
 
 ## Known Bugs
 
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
+No error checking for users entering the same word more than once.
 
 ## Support and contact details
 
