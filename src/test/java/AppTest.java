@@ -66,6 +66,17 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("stay");
   }
 
-  // Select select = new Select(webDriver.findElement(By.id("partsOfSpeech")));
-  // select.selectByValue("verb");
+  @Test
+  public void addingDefinitionToSpecificWord(){
+    goTo("http://localhost:4567");
+    fill("#wordEntry").with("stay");
+    submit("#addWord");
+    click("a", withText("stay"));
+    fill("#definitionEntry").with("to stop going forward");
+    Select select = new Select(webDriver.findElement(By.id("partsOfSpeech")));
+    select.selectByValue("verb");
+    submit("#addDefinition");
+    assertThat(pageSource()).contains("to stop going forward");
+  }
+
 }
