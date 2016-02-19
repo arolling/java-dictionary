@@ -12,7 +12,6 @@ public class App {
 
     get("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      Collections.sort(Word.all());
       model.put("allWords", Word.all());
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
@@ -46,6 +45,7 @@ public class App {
       String partOfSpeech = request.queryParams("partsOfSpeech");
       Definition newDefinition = new Definition(definitionEntry, partOfSpeech);
       selectedWord.addDefinition(newDefinition);
+      Collections.sort(selectedWord.allDefinitions());
       model.put("word", selectedWord);
       model.put("template", "templates/wordindex.vtl");
       return new ModelAndView(model, layout);

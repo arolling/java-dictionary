@@ -61,7 +61,7 @@ public class WordTest {
   }
 
   @Test
-  public void compareTo_helpsSortArrayOfWordObjects_familiar(){
+  public void compareTo_helpsSortArrayOfWordObjects_angels(){
     Word testWord = new Word("and");
     Word testWord2 = new Word("familiar");
     Word testWord3 = new Word("angels");

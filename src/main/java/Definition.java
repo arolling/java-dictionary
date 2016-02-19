@@ -1,9 +1,16 @@
+import java.util.*;
 
-public class Definition {
+public class Definition implements Comparable<Definition> {
   private String mDefinition;
   private String mPartOfSpeech;
   private int mID;
   private static int counter = 1;
+
+  @Override
+  public int compareTo(Definition other) {
+    return mPartOfSpeech.compareTo(other.mPartOfSpeech);
+  }
+
 
   public Definition(String newDefinition, String newPartOfSpeech) {
     mDefinition = newDefinition;
