@@ -14,7 +14,7 @@ public class WordTest {
   }
 
   @Test
-  public void getWord_returnsSpecificWord_Familiar(){
+  public void getWord_returnsSpecificWordString_Familiar(){
     Word testWord = new Word("familiar");
     assertEquals("familiar", testWord.getWord());
   }
@@ -33,5 +33,14 @@ public class WordTest {
     Word testWord = new Word("familiar");
     Word.clear();
     assertEquals(0, Word.all().size());
+  }
+
+  @Test
+  public void find_getsSpecificWordObject_familiar(){
+    Word testWord = new Word("and");
+    Word testWord2 = new Word("familiar");
+    Word testWord3 = new Word("angels");
+    Word testWord4 = new Word("gambler");
+    assertEquals(testWord3, Word.find(3));
   }
 }
