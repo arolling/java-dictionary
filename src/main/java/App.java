@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.*;
 
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -12,6 +12,7 @@ public class App {
 
     get("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
+      Collections.sort(Word.all());
       model.put("allWords", Word.all());
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
@@ -22,7 +23,7 @@ public class App {
 
       String wordEntry = request.queryParams("wordEntry");
       Word newWord = new Word(wordEntry);
-
+      Collections.sort(Word.all());
       model.put("allWords", Word.all());
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);

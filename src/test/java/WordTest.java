@@ -1,5 +1,6 @@
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.util.*;
 
 public class WordTest {
 
@@ -58,4 +59,15 @@ public class WordTest {
     testWord2.addDefinition(testDefinition4);
     assertTrue(testWord2.allDefinitions().contains(testDefinition4));
   }
+
+  @Test
+  public void compareTo_helpsSortArrayOfWordObjects_familiar(){
+    Word testWord = new Word("and");
+    Word testWord2 = new Word("familiar");
+    Word testWord3 = new Word("angels");
+    Word testWord4 = new Word("gambler");
+    Collections.sort(Word.all());
+    assertEquals(testWord3, Word.all().get(1));
+  }
+
 }

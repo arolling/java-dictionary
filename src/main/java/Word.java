@@ -1,10 +1,16 @@
-import java.util.ArrayList;
+import java.util.*;
 
-public class Word{
+
+public class Word implements Comparable<Word>{
   private String mWord;
   private int mID;
   private static ArrayList<Word> allWords = new ArrayList<Word>();
   private ArrayList<Definition> mWordDefinitions;
+
+  @Override
+  public int compareTo(Word other) {
+    return mWord.compareToIgnoreCase(other.mWord);
+  }
 
 
   public Word(String newWord) {
