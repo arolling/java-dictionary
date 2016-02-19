@@ -6,7 +6,7 @@
     <form class="form-inline" action="/" method="post">
       <div class="form-group">
         <label for="wordEntry">Enter new word:</label>
-        <input type="text" name="wordEntry" id="wordEntry">
+        <input type="text" name="wordEntry" id="wordEntry" class="form-control">
       </div>
       <button type="submit" id="addWord" class="btn btn-success">Add New Word</button>
     </form>
@@ -14,7 +14,8 @@
   <div class="col-md-4"> <!-- Column to display current word entries -->
     #if ($allWords)
       #foreach($entry in $allWords)
-        <h3>$entry.getWord()</h3>
+        <h4><a href="/words/$entry.getID()">$entry.getWord()</a></h4>
+        <hr />
       #end
     #end
   </div> <!-- END Column to display current word entries -->

@@ -27,5 +27,14 @@ public class App {
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    get("words/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      Word selectedWord = Word.find(Integer.parseInt(request.params(":id")));
+      
+      model.put("word", selectedWord);
+      model.put("template", "templates/wordindex.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
 }

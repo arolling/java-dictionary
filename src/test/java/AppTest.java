@@ -57,6 +57,15 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("metronome");
   }
 
+  @Test
+  public void clickingAWordTakesUserToPageToAddDefinitions(){
+    goTo("http://localhost:4567");
+    fill("#wordEntry").with("stay");
+    submit("#addWord");
+    click("a", withText("stay"));
+    assertThat(pageSource()).contains("stay");
+  }
+
   // Select select = new Select(webDriver.findElement(By.id("partsOfSpeech")));
   // select.selectByValue("verb");
 }
