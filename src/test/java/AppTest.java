@@ -11,6 +11,8 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import static org.fluentlenium.core.filter.FilterConstructor.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.By;
 
 public class AppTest extends FluentTest {
   public WebDriver webDriver = new HtmlUnitDriver();
@@ -23,13 +25,38 @@ public class AppTest extends FluentTest {
   @ClassRule
   public static ServerRule server = new ServerRule();
 
-  // @Rule
-  // public ClearRule clearRule = new ClearRule();
+  @Rule
+  public ClearRule clearRule = new ClearRule();
 
-  //Integration testing
-  // @Test
-  // public void rootTest() {
-  //   goTo("http://localhost:4567/");
-  //   assertThat(pageSource()).contains("Leap year detector");
-  // }
+  // Integration testing
+
+  @Test
+  public void rootTest() {
+    goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("Dictionary");
+  }
+
+  @Test
+  public void submitNewWordTest() {
+    goTo("http://localhost:4567");
+    fill("#wordEntry").with("stay");
+    submit("#addWord");
+    assertThat(pageSource()).contains("stay");
+  }
+
+  @Test
+  public void submitMultipleNewWordsTest() {
+    goTo("http://localhost:4567");
+    fill("#wordEntry").with("stay");
+    submit("#addWord");
+    fill("#wordEntry").with("familiar");
+    submit("#addWord");
+    fill("#wordEntry").with("metronome");
+    submit("#addWord");
+    assertThat(pageSource()).contains("stay");
+    assertThat(pageSource()).contains("metronome");
+  }
+
+  // Select select = new Select(webDriver.findElement(By.id("partsOfSpeech")));
+  // select.selectByValue("verb");
 }

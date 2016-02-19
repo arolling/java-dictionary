@@ -55,6 +55,7 @@ public class WordTest {
     Definition testDefinition3 = new Definition("frequently seen or experienced", "adjective");
     Definition testDefinition4 = new Definition("possibly known but not clearly remembered", "adjective");
     testWord2.addDefinition(testDefinition2);
-    assertTrue(testWord2.allDefinitions().contains(testDefinition2));
+    testWord2.addDefinition(testDefinition4);
+    assertTrue(testWord2.allDefinitions().contains(testDefinition4));
   }
 }
