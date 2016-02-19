@@ -4,4 +4,8 @@ public class Word{
   public Word(String newWord) {
     mWord = newWord;
   }
+
+  public String getWord() {
+    return mWord;
+  }
 }

@@ -13,5 +13,11 @@ public class WordTest {
     assertEquals(true, testWord instanceof Word);
   }
 
+  @Test
+  public void getWord_returnsSpecificWord_Familiar(){
+    Word testWord = new Word("Familiar");
+    assertEquals("Familiar", testWord.getWord());
+  }
+
 
 }
