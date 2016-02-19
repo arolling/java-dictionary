@@ -36,6 +36,16 @@ public class Word implements Comparable<Word>{
     return mWordDefinitions;
   }
 
+  public boolean deleteDefinition(int defID) {
+    for (Definition gloss : mWordDefinitions) {
+      if (defID == gloss.getID()) {
+        mWordDefinitions.remove(gloss);
+        return true;
+      }
+    }
+    return false;
+  }
+
 
   // All static functions below
   public static ArrayList<Word> all(){

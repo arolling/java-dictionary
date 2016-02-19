@@ -6,8 +6,13 @@
   <div class="col-md-4"> <!-- Column to display current definitions -->
     #if ($word.allDefinitions())
       #foreach($entry in $word.allDefinitions())
-        <h6>($entry.getPartOfSpeech())<h6>
-        <h4>$entry.getDefinition()</h4>
+        <h6>($entry.getPartOfSpeech())</h6>
+        <form action="/words/delete/$word.getID()" method="post" id="$entry">
+          <input type="hidden" name="deleteDefinition" value="$entry.getID()">
+          <h4>$entry.getDefinition() <button type="submit" class="btn btn-xs btn-default" id="$entry.getDefinition()">Delete</button></h4>
+
+        </form>
+
         <hr />
       #end
     #end

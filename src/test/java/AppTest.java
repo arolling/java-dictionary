@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.By;
 
 public class AppTest extends FluentTest {
-  public WebDriver webDriver = new HtmlUnitDriver();
+  public WebDriver webDriver = new HtmlUnitDriver(true);
 
   @Override
   public WebDriver getDefaultDriver() {
@@ -77,6 +77,22 @@ public class AppTest extends FluentTest {
     select.selectByValue("verb");
     submit("#addDefinition");
     assertThat(pageSource()).contains("to stop going forward");
+  }
+
+  @Test
+  public void deletingDefinitionFromSpecificWord(){
+    goTo("http://localhost:4567");
+    fill("#wordEntry").with("stay");
+    submit("#addWord");
+    click("a", withText("stay"));
+    fill("#definitionEntry").with("to stop going forward");
+    Select select = new Select(webDriver.findElement(By.id("partsOfSpeech")));
+    select.selectByValue("verb");
+    submit("#addDefinition");
+    submit("#to stop going forward");
+    assertThat(pageSource()).contains("NONONON");
+    //assertThat(!(pageSource()).contains("to stop going forward"));
+
   }
 
 }
