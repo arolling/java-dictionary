@@ -9,15 +9,20 @@ public class WordTest {
   // UNIT TESTING
   @Test
   public void Word_instantiatesCorrectly_true(){
-    Word testWord = new Word("Familiar");
+    Word testWord = new Word("familiar", "noun");
     assertEquals(true, testWord instanceof Word);
   }
 
   @Test
   public void getWord_returnsSpecificWord_Familiar(){
-    Word testWord = new Word("Familiar");
-    assertEquals("Familiar", testWord.getWord());
+    Word testWord = new Word("familiar", "noun");
+    assertEquals("familiar", testWord.getWord());
   }
 
+  @Test
+  public void getPartOfSpeech_returnsTypeOfSpecificWord_noun(){
+    Word testWord = new Word("familiar", "noun");
+    assertEquals("noun", testWord.getPartOfSpeech());
+  }
 
 }
