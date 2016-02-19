@@ -15,14 +15,14 @@
   <div class="col-md-8"><!-- Column for form to add definitions -->
     <form class="form-horizontal" action="/words/$word.getID()" method="post">
       <div class="form-group">
-        <label for="definitionEntry" class="col-sm-2 control-label">Enter new definition:</label>
-        <div class="col-sm-10">
+        <label for="definitionEntry" class="col-sm-4 control-label">Enter new definition:</label>
+        <div class="col-sm-8">
           <input type="text" name="definitionEntry" id="definitionEntry" class="form-control">
         </div>
       </div>
       <div class="form-group">
-        <label for="partsOfSpeech" class="col-sm-2 control-label">Part of Speech:</label>
-        <div class="col-sm-10">
+        <label for="partsOfSpeech" class="col-sm-4 control-label">Part of Speech:</label>
+        <div class="col-sm-8">
           <select class="form-control" name="partsOfSpeech" id="partsOfSpeech">
             <option value="verb" id="verb">Verb</option>
             <option value="adjective" id="adjective">Adjective</option>
@@ -36,7 +36,11 @@
           </select>
         </div>
       </div>
-      <button type="submit" id="addDefinition" class="btn btn-info">Add New Definition</button>
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-8">
+          <button type="submit" id="addDefinition" class="btn btn-primary">Add New Definition</button>
+        </div>
+      </div>
     </form>
   </div><!-- END Column for form to add definitions -->
 </div>

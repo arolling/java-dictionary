@@ -2,7 +2,7 @@
   <h1>Dictionary</h1>
 </div>
 <div class="row">
-  <div class="col-md-8"><!-- Column for form to add word entries -->
+  <div class="col-md-5"><!-- Column for form to add word entries -->
     <form class="form-inline" action="/" method="post">
       <div class="form-group">
         <label for="wordEntry">Enter new word:</label>
@@ -11,10 +11,10 @@
       <button type="submit" id="addWord" class="btn btn-success">Add New Word</button>
     </form>
   </div><!-- END Column for form to add word entries -->
-  <div class="col-md-4"> <!-- Column to display current word entries -->
+  <div class="col-md-7"> <!-- Column to display current word entries -->
     #if ($allWords)
       #foreach($entry in $allWords)
-        <h4><a href="/words/$entry.getID()">$entry.getWord()</a></h4>
+        <h3><a href="/words/$entry.getID()">$entry.getWord()</a></h3>
         <hr />
       #end
     #end
