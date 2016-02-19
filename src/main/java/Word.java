@@ -4,12 +4,14 @@ public class Word{
   private String mWord;
   private int mID;
   private static ArrayList<Word> allWords = new ArrayList<Word>();
+  private ArrayList<Definition> mWordDefinitions;
 
 
   public Word(String newWord) {
     mWord = newWord;
     allWords.add(this);
     mID = allWords.size();
+    mWordDefinitions = new ArrayList<Definition>();
   }
 
   public String getWord() {
@@ -20,6 +22,16 @@ public class Word{
     return mID;
   }
 
+  public void addDefinition(Definition newDefinition){
+    mWordDefinitions.add(newDefinition);
+  }
+
+  public ArrayList<Definition> allDefinitions() {
+    return mWordDefinitions;
+  }
+
+
+  // All static functions below
   public static ArrayList<Word> all(){
     return allWords;
   }

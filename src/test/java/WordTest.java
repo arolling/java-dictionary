@@ -43,4 +43,18 @@ public class WordTest {
     Word testWord4 = new Word("gambler");
     assertEquals(testWord3, Word.find(3));
   }
+
+  @Test
+  public void addDefinition_addsDefinitionObjectToSpecificWord_true(){
+    Word testWord = new Word("and");
+    Word testWord2 = new Word("familiar");
+    Word testWord3 = new Word("angels");
+    Word testWord4 = new Word("gambler");
+    Definition testDefinition = new Definition("a member of the household of a high official", "noun");
+    Definition testDefinition2 = new Definition("one who is well acquainted with something", "noun");
+    Definition testDefinition3 = new Definition("frequently seen or experienced", "adjective");
+    Definition testDefinition4 = new Definition("possibly known but not clearly remembered", "adjective");
+    testWord2.addDefinition(testDefinition2);
+    assertTrue(testWord2.allDefinitions().contains(testDefinition2));
+  }
 }
