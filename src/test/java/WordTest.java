@@ -3,8 +3,8 @@ import static org.junit.Assert.*;
 
 public class WordTest {
 
-  // @Rule
-  // public ClearRule clearRule = new ClearRule();
+  @Rule
+  public ClearRule clearRule = new ClearRule();
 
   // UNIT TESTING
   @Test
@@ -19,4 +19,19 @@ public class WordTest {
     assertEquals("familiar", testWord.getWord());
   }
 
+  @Test
+  public void all_returnsAllWordsInMemory_true(){
+    Word testWord2 = new Word("and");
+    Word testWord = new Word("familiar");
+    assertTrue(Word.all().contains(testWord2));
+    assertTrue(Word.all().contains(testWord));
+  }
+
+  @Test
+  public void clear_erasesAllCurrentWordsFromList_true(){
+    Word testWord2 = new Word("and");
+    Word testWord = new Word("familiar");
+    Word.clear();
+    assertEquals(0, Word.all().size());
+  }
 }

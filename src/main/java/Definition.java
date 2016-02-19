@@ -1,3 +1,4 @@
+
 public class Definition {
   private String mDefinition;
   private String mPartOfSpeech;
