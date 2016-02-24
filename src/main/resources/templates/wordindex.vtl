@@ -9,7 +9,7 @@
         <h6>($entry.getPartOfSpeech())</h6>
         <form action="/words/delete/$word.getID()" method="post" id="$entry">
           <input type="hidden" name="deleteDefinition" value="$entry.getID()">
-          <h4>$entry.getDefinition() <button type="submit" class="btn btn-xs btn-default" id="$entry.getDefinition()">Delete</button></h4>
+          <h4>$entry.getDefinition() <button type="submit" class="btn btn-xs btn-default" id="$entry.getID()">Delete</button></h4>
 
         </form>
 

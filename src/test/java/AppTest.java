@@ -89,10 +89,8 @@ public class AppTest extends FluentTest {
     Select select = new Select(webDriver.findElement(By.id("partsOfSpeech")));
     select.selectByValue("verb");
     submit("#addDefinition");
-    submit("#to stop going forward");
+    submit("#1");
     assertThat(pageSource()).contains("stay");
     assertThat(!(pageSource()).contains("to stop going forward"));
-    // THIS TEST IS WRONG IN SOME WAY, BUT THE ACTUAL SITE WORKS
   }
-
 }
